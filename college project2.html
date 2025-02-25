@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbots</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #141E30, #243B55);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            overflow-y: scroll;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            animation: fadeIn 1s ease;
+        }
+
+        .chatbot {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            animation: fadeInUp 1s ease;
+        }
+
+        .chatbot:hover {
+            transform: translateY(-10px);
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .chatbot h2 {
+            color: #ffcc00;
+            transition: color 0.3s;
+        }
+
+        .chatbot:hover h2 {
+            color: #00d9ff;
+        }
+
+        .chatbot p {
+            color: #dddddd;
+        }
+
+        .chatbot a {
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .chatbot a:hover {
+            color: #00d9ff;
+            text-shadow: 0 0 10px #00d9ff;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #007BFF, #00d9ff);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00d9ff;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="history.back()">Back</button>
+    <div class="content">
+        <h1>Explore AI Chatbots</h1>
+        <div class="chatbot">
+            <h2>ChatGPT</h2>
+            <p>Your AI assistant for generating content, answering questions, and more.</p>
+            <a href="https://chatgpt.com/" target="_blank">Learn more</a>
+        </div>
+        <div class="chatbot">
+            <h2>Image Generator AI</h2>
+            <p>Create stunning visuals with just a few words using AI-powered image generation.</p>
+            <a href="https://gemini.google.com/app" target="_blank">Learn more</a>
+        </div>
+        <div class="chatbot">
+            <h2>Video Generator AI</h2>
+            <p>Turn your ideas into videos with AI-driven video creation tools.</p>
+            <a href="https://invideo.io/" target="_blank">Learn more</a>
+        </div>
+        <div class="chatbot">
+            <h2>Pentest GPT</h2>
+            <p>Enhance cybersecurity with AI-assisted penetration testing tools.</p>
+            <a href="https://pentestgpt.ai/login" target="_blank">Learn more</a>
+        </div>
+        <div class="chatbot">
+            <h2>Alexa AI</h2>
+            <p>Amazon's virtual assistant that responds to voice commands using machine learning.</p>
+            <a href="https://developer.amazon.com/en-US/alexa" target="_blank">Learn more</a>
+        </div>
+    </div>
+</body>
+</html>

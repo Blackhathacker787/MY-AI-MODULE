@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://img.freepik.com/free-vector/network-connection-background-gradient_23-2148879893.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+    .container, .form-container {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .logo {
+      font-size: 5rem;
+      color: #ffffff;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .welcome {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #ffeb3b;
+    }
+    .start-btn, .form-container button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.5rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .start-btn:hover, .form-container button:hover {
+      background-color: #0056b3;
+    }
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    .header h2 {
+      font-size: 20px;
+      margin: 5px 0;
+    }
+    .form-container h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: white;
+    }
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border-radius: 5px;
+    }
+    .form-container input::placeholder {
+      color: #fff;
+    }
+    .toggle-button {
+      margin-top: 10px;
+      cursor: pointer;
+      color: #ffeb3b;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Front Page Container -->
+  <div class="container" id="front-page">
+    <div class="logo">AI</div>
+    <div class="welcome">Welcome to AI Chatbot</div>
+    <button class="start-btn" onclick="showSignInSignUp()">Start Chat</button>
+  </div>
+
+  <!-- Sign In/Sign Up Container -->
+  <div class="form-container" id="sign-in-sign-up" style="display: none;">
+    <div class="header">
+      <h1>Welcome to AI Chatbot</h1>
+      <h2 id="form-header">Sign In to AI Chatbot</h2>
+    </div>
+    <h1 id="form-title">Sign In</h1>
+    <div id="form-fields">
+      <input type="text" id="signin-username" placeholder="Username" required>
+      <input type="password" id="signin-password" placeholder="Password" required>
+    </div>
+    <button id="submit-button" onclick="submitForm()">Sign In</button>
+    <div class="toggle-button" onclick="toggleForm()">Don't have an account? Sign Up</div>
+  </div>
+
+  <script>
+    let isSignUp = false;
+    
+    function showSignInSignUp() {
+      document.getElementById('front-page').style.display = 'none';
+      document.getElementById('sign-in-sign-up').style.display = 'block';
+    }
+
+    function toggleForm() {
+      isSignUp = !isSignUp;
+      document.getElementById('form-title').textContent = isSignUp ? 'Sign Up' : 'Sign In';
+      document.getElementById('form-header').textContent = isSignUp ? 'Sign Up for AI Chatbot' : 'Sign In to AI Chatbot';
+      document.getElementById('submit-button').textContent = isSignUp ? 'Sign Up' : 'Sign In';
+      document.querySelector('.toggle-button').textContent = isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up";
+
+      const formFields = document.getElementById('form-fields');
+      if (isSignUp) {
+        formFields.innerHTML = `
+          <input type="text" id="signup-name" placeholder="Full Name" required>
+          <input type="text" id="signup-username" placeholder="Username" required>
+          <input type="password" id="signup-password" placeholder="Password" required>
+          <input type="date" id="signup-dob" required>
+          <input type="email" id="signup-email" placeholder="Email" required>
+        `;
+      } else {
+        formFields.innerHTML = `
+          <input type="text" id="signin-username" placeholder="Username" required>
+          <input type="password" id="signin-password" placeholder="Password" required>
+        `;
+      }
+    }
+
+    function submitForm() {
+      if (isSignUp) {
+        const name = document.getElementById('signup-name')?.value;
+        const username = document.getElementById('signup-username')?.value;
+        const password = document.getElementById('signup-password')?.value;
+        const dob = document.getElementById('signup-dob')?.value;
+        const email = document.getElementById('signup-email')?.value;
+
+        if (!name || !username || !password || !dob || !email) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        alert(`Sign Up successful for ${username}!`);
+        window.location.href = 'http://127.0.0.1:5500/college%20project2.html'; // Replace with actual sign-up redirect URL
+
+      } else {
+        const username = document.getElementById('signin-username')?.value;
+        const password = document.getElementById('signin-password')?.value;
+
+        if (!username || !password) {
+          alert("Please enter both username and password.");
+          return;
+        }
+
+        alert(`Sign In successful for ${username}!`);
+        window.location.href = 'http://127.0.0.1:5500/college%20project2.html'; // Replace with actual sign-in redirect URL
+      }
+    }
+  </script>
+
+</body>
+</html>
